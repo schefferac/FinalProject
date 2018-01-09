@@ -3,35 +3,45 @@
     Dim canvas As Bitmap
     Dim counter As Integer = 0
     Dim canvasPen, formPen As Graphics
-    Dim playerX, playerY, bulletX, bulletY, AlienX, AlienY As Integer
+    Dim playerX, playerY, bulletX, bulletY As Integer
     Dim grounded As Boolean = False
-    Dim AlienGrounded As Boolean = False
-    Dim AlienGroundedLeft As Boolean = False
-    Dim AlienGroundedRight As Boolean = False
-    Dim AlienGroundedMiddle As Boolean = False
+
     Dim counter2 As Integer
     Dim ShootCounter As Integer = 75
     'Alien Decision Variables
-    Dim Rand As New Random
-    Dim MakeDecision As Integer
-    Dim DecisionMade As Boolean
+
+
+
     'Direction Variables
     Dim left, right, up, shoot As Boolean
     Dim facingRight As Boolean = True
     Dim lastFacing As Boolean = False
     Dim Negation As Integer = 1
-    'His life
-    Dim lives As Integer = 3
-    Dim lifeTaken = False
+
+    'Aliens
+    Dim aliens(3) As Alien
+    Dim alien1 As New Alien
+    Dim alien2 As New Alien
+    Dim alien3 As New Alien
+    Dim alien4 As New Alien
+
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+
+        aliens(0) = alien1
+        aliens(1) = alien2
+        aliens(2) = alien3
+        aliens(3) = alien4
+
+
         formPen = Me.CreateGraphics
         canvas = New Bitmap(Me.Width, Me.Height)
         canvasPen = Graphics.FromImage(canvas)
         playerX = 200
         playerY = 200
-        AlienX = 200
-        AlienY = 0
+        Alien1.alienX = 200
+        Alien1.AlienY = 0
         Timer1.Start()
 
 
@@ -93,7 +103,10 @@
             Timer2.Start()
         End If
 
-        AlienY += 5
+        For x = 0 To 3
+            aliens(x).AlienY += 5
+        Next
+
 
         If playerX <> -12 And playerX <> Me.Width Then
             If Timer2.Enabled = False Then
@@ -107,27 +120,36 @@
             End If
         End If
 
-        If AlienY <= 0 Then
-            AlienGrounded = False
-            lifeTaken = False
-        End If
-        'Draw Heart
-        If lives = 3 Then
-            canvasPen.DrawImage(My.Resources.Heart, 0, 0)
-            canvasPen.DrawImage(My.Resources.Heart, My.Resources.Heart.Width + 5, 0)
-            canvasPen.DrawImage(My.Resources.Heart, 2 * (My.Resources.Heart.Width + 5), 0)
-        ElseIf lives = 2 Then
-            canvasPen.DrawImage(My.Resources.Heart, 0, 0)
-            canvasPen.DrawImage(My.Resources.Heart, My.Resources.Heart.Width + 5, 0)
-        ElseIf lives = 1 Then
-            canvasPen.DrawImage(My.Resources.Heart, 0, 0)
-        Else
 
-        End If
+        For x = 0 To 3
+            If aliens(x).AlienY <= 0 Then
+                aliens(x).Grounded = False
+                aliens(x).lifeTaken = False
+            End If
 
+
+
+
+            'Draw Heart
+            If aliens(x).lives = 3 Then
+                canvasPen.DrawImage(My.Resources.Heart, 0, 0)
+                canvasPen.DrawImage(My.Resources.Heart, My.Resources.Heart.Width + 5, 0)
+                canvasPen.DrawImage(My.Resources.Heart, 2 * (My.Resources.Heart.Width + 5), 0)
+            ElseIf aliens(x).lives = 2 Then
+                canvasPen.DrawImage(My.Resources.Heart, 0, 0)
+                canvasPen.DrawImage(My.Resources.Heart, My.Resources.Heart.Width + 5, 0)
+            ElseIf aliens(x).lives = 1 Then
+                canvasPen.DrawImage(My.Resources.Heart, 0, 0)
+            Else
+
+            End If
+        Next
 
         'Draw Alien
-        canvasPen.DrawImage(My.Resources.Alien, AlienX, AlienY)
+        For x = 0 To 3
+            canvasPen.DrawImage(My.Resources.Alien, aliens(x).alienX, aliens(x).AlienY)
+        Next
+
 
         'Obstacle\
 
@@ -194,44 +216,18 @@
         Dim leftRec As New Rectangle(0, 320, 100, 5)
         Dim RightRec As New Rectangle(Me.Width - 117, 320, 100, 5)
         Dim middleRec As New Rectangle((Me.Width \ 4), Me.Height - 200, Me.Width \ 2, 5)
-        Dim AlienRec As New Rectangle(AlienX, AlienY + 15, My.Resources.Alien.Width, My.Resources.Alien.Height - 30)
+
+
+
         Dim bulletRec As New Rectangle(bulletX, bulletY, My.Resources.Bullet.Width, My.Resources.Bullet.Height)
         'canvasPen.DrawRectangle(Pens.Red, bulletX, bulletY + 15, My.Resources.Bullet.Width, My.Resources.Bullet.Height - 15)
 
 
-        'Alien Movements
-        If DecisionMade = False Then
-            MakeDecision = Rand.Next(1, 5)
-            DecisionMade = True
-        End If
-        If AlienGroundedMiddle = True Then
-            If MakeDecision > 2 Then
-                AlienX += 8
-            Else
-                AlienX -= 8
-            End If
-        ElseIf AlienGroundedLeft = True Then
-            AlienX += 8
-        ElseIf AlienGroundedRight = True Then
-            AlienX -= 8
-        ElseIf AlienGrounded = True Then
-            If AlienX <= 225 Then
-                AlienX += 8
-            ElseIf AlienX >= 250 Then
-                AlienX -= 8
-            Else
-                AlienY = -40
-                DecisionMade = False
-                If lifeTaken = False Then
-                    lives -= 1
-
-                    lifeTaken = True
-                End If
-
-            End If
-        End If
 
 
+        For x = 0 To 3
+            aliens(x).alienMove()
+        Next
 
 
 
@@ -239,32 +235,34 @@
         Dim r As New Random
 
         'Alien ----> Object Interactions
-        If bulletRec.IntersectsWith(AlienRec) Then
-            AlienY = -40
-            AlienX = r.Next(0, 256)
-            DecisionMade = False
-        End If
+        For x = 0 To 3
 
-        If AlienRec.IntersectsWith(bottomRec) Then
-            AlienY -= 5
-            AlienGrounded = True
-        ElseIf AlienRec.IntersectsWith(leftRec) Then
-            AlienY -= 5
-            AlienGroundedLeft = True
-        ElseIf AlienRec.IntersectsWith(RightRec) Then
-            AlienY -= 5
-            AlienGroundedRight = True
-        ElseIf AlienRec.IntersectsWith(middleRec) Then
-            AlienY -= 5
-            AlienGroundedMiddle = True
-        Else
-            AlienGrounded = False
-            AlienGroundedLeft = False
-            AlienGroundedRight = False
-            AlienGroundedMiddle = False
 
-        End If
+            If bulletRec.IntersectsWith(aliens(x).AlienRec) Then
+                aliens(x).AlienY = -40
+                aliens(x).alienX = r.Next(0, 256)
+                aliens(x).DecisionMade = False
+            End If
 
+            If aliens(x).AlienRec.IntersectsWith(bottomRec) Then
+                aliens(x).Grounded = True
+            ElseIf aliens(x).AlienRec.IntersectsWith(leftRec) Then
+                aliens(x).AlienY -= 5
+                aliens(x).GroundedLeft = True
+            ElseIf aliens(x).AlienRec.IntersectsWith(RightRec) Then
+                aliens(x).AlienY -= 5
+                aliens(x).GroundedRight = True
+            ElseIf aliens(x).AlienRec.IntersectsWith(middleRec) Then
+                aliens(x).AlienY -= 5
+                aliens(x).GroundedMiddle = True
+            Else
+                aliens(x).Grounded = False
+                aliens(x).GroundedLeft = False
+                aliens(x).GroundedRight = False
+                aliens(x).GroundedMiddle = False
+
+            End If
+        Next
 
         'Player ----> Object Interactions
         If eggRec.IntersectsWith(bottomRec) Then

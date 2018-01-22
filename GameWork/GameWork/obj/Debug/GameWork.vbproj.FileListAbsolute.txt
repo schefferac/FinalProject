@@ -1,0 +1,45 @@
+C:\Users\pelletierrd\documents\visual studio 2017\Projects\GameWork\GameWork\bin\Debug\GameWork.exe.config
+C:\Users\pelletierrd\documents\visual studio 2017\Projects\GameWork\GameWork\bin\Debug\GameWork.exe
+C:\Users\pelletierrd\documents\visual studio 2017\Projects\GameWork\GameWork\bin\Debug\GameWork.pdb
+C:\Users\pelletierrd\documents\visual studio 2017\Projects\GameWork\GameWork\bin\Debug\GameWork.xml
+C:\Users\pelletierrd\documents\visual studio 2017\Projects\GameWork\GameWork\obj\Debug\GameWork.vbprojResolveAssemblyReference.cache
+C:\Users\pelletierrd\documents\visual studio 2017\Projects\GameWork\GameWork\obj\Debug\GameWork.Resources.resources
+C:\Users\pelletierrd\documents\visual studio 2017\Projects\GameWork\GameWork\obj\Debug\GameWork.vbproj.GenerateResource.Cache
+C:\Users\pelletierrd\documents\visual studio 2017\Projects\GameWork\GameWork\obj\Debug\GameWork.exe
+C:\Users\pelletierrd\documents\visual studio 2017\Projects\GameWork\GameWork\obj\Debug\GameWork.xml
+C:\Users\pelletierrd\documents\visual studio 2017\Projects\GameWork\GameWork\obj\Debug\GameWork.pdb
+C:\Users\pelletierrd\documents\visual studio 2017\Projects\GameWork\GameWork\obj\Debug\GameWork.TooMuchFreeTime.resources
+H:\GameWork\GameWork\bin\Debug\GameWork.exe.config
+H:\GameWork\GameWork\bin\Debug\GameWork.exe
+H:\GameWork\GameWork\bin\Debug\GameWork.pdb
+H:\GameWork\GameWork\bin\Debug\GameWork.xml
+H:\GameWork\GameWork\obj\Debug\GameWork.vbprojResolveAssemblyReference.cache
+H:\GameWork\GameWork\obj\Debug\GameWork.TooMuchFreeTime.resources
+H:\GameWork\GameWork\obj\Debug\GameWork.Resources.resources
+H:\GameWork\GameWork\obj\Debug\GameWork.vbproj.GenerateResource.Cache
+H:\GameWork\GameWork\obj\Debug\GameWork.vbproj.CoreCompileInputs.cache
+H:\GameWork\GameWork\obj\Debug\GameWork.exe
+H:\GameWork\GameWork\obj\Debug\GameWork.xml
+H:\GameWork\GameWork\obj\Debug\GameWork.pdb
+E:\GameWork\GameWork\bin\Debug\GameWork.exe.config
+E:\GameWork\GameWork\bin\Debug\GameWork.exe
+E:\GameWork\GameWork\bin\Debug\GameWork.pdb
+E:\GameWork\GameWork\bin\Debug\GameWork.xml
+E:\GameWork\GameWork\obj\Debug\GameWork.vbprojResolveAssemblyReference.cache
+E:\GameWork\GameWork\obj\Debug\GameWork.TooMuchFreeTime.resources
+E:\GameWork\GameWork\obj\Debug\GameWork.Resources.resources
+E:\GameWork\GameWork\obj\Debug\GameWork.vbproj.GenerateResource.Cache
+E:\GameWork\GameWork\obj\Debug\GameWork.exe
+E:\GameWork\GameWork\obj\Debug\GameWork.xml
+E:\GameWork\GameWork\obj\Debug\GameWork.pdb
+C:\Users\pelletierrd\Desktop\GameWork\GameWork\bin\Debug\GameWork.exe.config
+C:\Users\pelletierrd\Desktop\GameWork\GameWork\bin\Debug\GameWork.exe
+C:\Users\pelletierrd\Desktop\GameWork\GameWork\bin\Debug\GameWork.pdb
+C:\Users\pelletierrd\Desktop\GameWork\GameWork\bin\Debug\GameWork.xml
+C:\Users\pelletierrd\Desktop\GameWork\GameWork\obj\Debug\GameWork.vbprojResolveAssemblyReference.cache
+C:\Users\pelletierrd\Desktop\GameWork\GameWork\obj\Debug\GameWork.TooMuchFreeTime.resources
+C:\Users\pelletierrd\Desktop\GameWork\GameWork\obj\Debug\GameWork.Resources.resources
+C:\Users\pelletierrd\Desktop\GameWork\GameWork\obj\Debug\GameWork.vbproj.GenerateResource.Cache
+C:\Users\pelletierrd\Desktop\GameWork\GameWork\obj\Debug\GameWork.exe
+C:\Users\pelletierrd\Desktop\GameWork\GameWork\obj\Debug\GameWork.xml
+C:\Users\pelletierrd\Desktop\GameWork\GameWork\obj\Debug\GameWork.pdb
